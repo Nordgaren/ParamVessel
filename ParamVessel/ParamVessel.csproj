@@ -88,6 +88,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LIB\System.Windows.Interactivity.dll</HintPath>
@@ -113,6 +115,12 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BatchLoad.xaml.cs">
+      <DependentUpon>BatchLoad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BatchSave.xaml.cs">
+      <DependentUpon>BatchSave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DynamicParamBND.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IOHelper.cs" />
@@ -122,9 +130,18 @@
     <Compile Include="QuickTextEntry.xaml.cs">
       <DependentUpon>QuickTextEntry.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SavedParamRow.cs" />
     <Compile Include="TabControlEx.cs" />
     <Compile Include="UserConfig.cs" />
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BatchLoad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BatchSave.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

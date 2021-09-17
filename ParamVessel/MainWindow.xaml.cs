@@ -851,6 +851,37 @@ namespace MeowsBetterParamEditor
             ParamRowExportForDSParamLauncher();
         }
 
+        private void Batch_Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (PARAMDATA.Params.Count != 0)
+            {
+                BatchSave batchSave = new BatchSave(PARAMDATA, this);
+                batchSave.Show();
+            }
+            else
+            {
+                MessageBox.Show("Can't Batch save/load params if they don't exist!" +
+                    "File -> Select Game Executable and load a game!",
+                    "No Params Loaded", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+
+        }
+
+        private void Batch_Load_Click(object sender, RoutedEventArgs e)
+        {
+            if (PARAMDATA.Params.Count != 0)
+            {
+                BatchLoad batchSave = new BatchLoad(PARAMDATA);
+                batchSave.Show();
+            }
+            else
+            {
+                MessageBox.Show("Can't Batch save/load params if they don't exist!" +
+                    "File -> Select Game Executable and load a game!",
+                    "No Params Loaded", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
         //private void MenuToolsLiveRefreshParam_Click(object sender, RoutedEventArgs e)
         //{
         //    LiveRefreshParam(PARAMDATA.Params.Where(x => x.Value == SelectedParam).First());

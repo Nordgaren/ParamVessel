@@ -231,6 +231,8 @@
                         Header="Restore all PARAMBND Backups..." 
                         Click="MenuRestoreBackups_Click" 
                         />
+                    <MenuItem x:Name="Batch_Save" Header="Batch Save" Click="Batch_Save_Click"/>
+                    <MenuItem x:Name="Batch_Load" Header="Batch Load" Click="Batch_Load_Click"/>
                 </MenuItem>
                 <!--<MenuItem 
                     Header="Edit" 
