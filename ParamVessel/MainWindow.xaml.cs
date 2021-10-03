@@ -887,7 +887,7 @@ namespace MeowsBetterParamEditor
         {
             var index = MainTabs.SelectedIndex;
 
-            var selectedParamRow = PARAMDATA.Params[index].Value.Entries;
+            var selectedParam = PARAMDATA.Params[index].Value.Entries;
 
             var browseDialog = new SaveFileDialog()
             {
@@ -907,25 +907,25 @@ namespace MeowsBetterParamEditor
                 fs.Write(", ");
                 fs.Write("ID");
                 fs.Write(", ");
-                for (int i = 0; i < selectedParamRow[0].Cells.Count(); i++)
+                for (int i = 0; i < selectedParam[0].Cells.Count(); i++)
                 {
-                    fs.Write(selectedParamRow[0].Cells[i].Def.Name);
-                    if (i < selectedParamRow[0].Cells.Count() - 1)
+                    fs.Write(selectedParam[0].Cells[i].Def.Name);
+                    if (i < selectedParam[0].Cells.Count() - 1)
                         fs.Write(", ");
                     else
                         fs.Write("\n");
                 }
 
-                for (int i = 0; i < selectedParamRow.Count(); i++)
+                for (int i = 0; i < selectedParam.Count(); i++)
                 {
-                    fs.Write(selectedParamRow[i].Name);
+                    fs.Write(selectedParam[i].Name);
                     fs.Write(", ");
-                    fs.Write(selectedParamRow[i].ID);
+                    fs.Write(selectedParam[i].ID);
                     fs.Write(", ");
-                    for (int j = 0; j < selectedParamRow[i].Cells.Count(); j++)
+                    for (int j = 0; j < selectedParam[i].Cells.Count(); j++)
                     {
-                        fs.Write(selectedParamRow[i].Cells[j].Value);
-                        if (j < selectedParamRow[0].Cells.Count() - 1)
+                        fs.Write(selectedParam[i].Cells[j].Value);
+                        if (j < selectedParam[0].Cells.Count() - 1)
                             fs.Write(", ");
                         else
                             fs.Write("\n");
