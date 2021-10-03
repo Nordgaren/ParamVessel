@@ -233,6 +233,7 @@
                         />
                     <MenuItem x:Name="Batch_Save" Header="Batch Save" Click="Batch_Save_Click"/>
                     <MenuItem x:Name="Batch_Load" Header="Batch Load" Click="Batch_Load_Click"/>
+                    <MenuItem x:Name="Save_To_CSV" Header="Save To CSV" Click="CSV_Click"/>
                 </MenuItem>
                 <!--<MenuItem 
                     Header="Edit" 

@@ -871,14 +871,55 @@ namespace MeowsBetterParamEditor
         {
             if (PARAMDATA.Params.Count != 0)
             {
-                BatchLoad batchSave = new BatchLoad(PARAMDATA);
-                batchSave.Show();
+                BatchLoad batchLoad = new BatchLoad(PARAMDATA);
+                batchLoad.Show();
             }
             else
             {
                 MessageBox.Show("Can't Batch save/load params if they don't exist!" +
                     "File -> Select Game Executable and load a game!",
                     "No Params Loaded", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        private void CSV_Click(object sender, RoutedEventArgs e)
+        {
+            var index = MainTabs.SelectedIndex;
+
+            var selectedParamRow = PARAMDATA.Params[index].Value.Entries;
+
+            var lol = selectedParamRow[0].Cells[0].Def;
+
+            using (var fs = new StreamWriter($@"{PARAMDATA.Params[index].FancyDisplayName}.csv"))
+            {
+                fs.Write("Name");
+                fs.Write(", ");
+                fs.Write("ID");
+                fs.Write(", ");
+                for (int i = 0; i < selectedParamRow[0].Cells.Count(); i++)
+                {
+                    fs.Write(selectedParamRow[0].Cells[i].Def.Name);
+                    if (i < selectedParamRow[0].Cells.Count() - 1)
+                        fs.Write(", ");
+                    else
+                        fs.Write("\n");
+                }
+
+                for (int i = 0; i < selectedParamRow.Count(); i++)
+                {
+                    fs.Write(selectedParamRow[i].Name);
+                    fs.Write(", ");
+                    fs.Write(selectedParamRow[i].ID);
+                    fs.Write(", ");
+                    for (int j = 0; j < selectedParamRow[i].Cells.Count(); j++)
+                    {
+                        fs.Write(selectedParamRow[i].Cells[j].Value);
+                        if (j < selectedParamRow[0].Cells.Count() - 1)
+                            fs.Write(", ");
+                        else
+                            fs.Write("\n");
+                    }
+                }
             }
         }
 
