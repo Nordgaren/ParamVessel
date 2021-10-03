@@ -881,6 +881,7 @@ namespace MeowsBetterParamEditor
                     "No Params Loaded", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+        public static readonly string ExeDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         private void CSV_Click(object sender, RoutedEventArgs e)
         {
@@ -888,9 +889,19 @@ namespace MeowsBetterParamEditor
 
             var selectedParamRow = PARAMDATA.Params[index].Value.Entries;
 
-            var lol = selectedParamRow[0].Cells[0].Def;
+            var browseDialog = new SaveFileDialog()
+            {
+                AddExtension = true,
+                FileName = $"{PARAMDATA.Params[index].FancyDisplayName}",
+                DefaultExt = ".csv",
+                Title = $"Export {PARAMDATA.Params[index].FancyDisplayName} as CSV",
+                Filter = "csv(*.csv) | *.csv",
+            };
 
-            using (var fs = new StreamWriter($@"{PARAMDATA.Params[index].FancyDisplayName}.csv"))
+            if (browseDialog.ShowDialog() == false)
+                return;
+
+            using (var fs = new StreamWriter(browseDialog.FileName))
             {
                 fs.Write("Name");
                 fs.Write(", ");
