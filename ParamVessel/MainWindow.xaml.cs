@@ -901,30 +901,30 @@ namespace MeowsBetterParamEditor
             if (browseDialog.ShowDialog() == false)
                 return;
 
-            using (var fs = new StreamWriter(browseDialog.FileName))
+            using (var sw = new StreamWriter(browseDialog.FileName))
             {
-                fs.Write("Name, ");
-                fs.Write("ID, ");
+                sw.Write("Name, ");
+                sw.Write("ID, ");
                 for (int i = 0; i < selectedParam[0].Cells.Count(); i++)
                 {
-                    fs.Write(selectedParam[0].Cells[i].Def.Name);
+                    sw.Write(selectedParam[0].Cells[i].Def.Name);
                     if (i < selectedParam[0].Cells.Count() - 1)
-                        fs.Write(", ");
+                        sw.Write(", ");
                     else
-                        fs.Write("\n");
+                        sw.Write("\n");
                 }
 
                 for (int i = 0; i < selectedParam.Count(); i++)
                 {
-                    fs.Write($"{selectedParam[i].Name}, ");
-                    fs.Write($"{selectedParam[i].ID}, ");
+                    sw.Write($"{selectedParam[i].Name}, ");
+                    sw.Write($"{selectedParam[i].ID}, ");
                     for (int j = 0; j < selectedParam[i].Cells.Count(); j++)
                     {
-                        fs.Write(selectedParam[i].Cells[j].Value);
+                        sw.Write(selectedParam[i].Cells[j].Value);
                         if (j < selectedParam[0].Cells.Count() - 1)
-                            fs.Write(", ");
+                            sw.Write(", ");
                         else
-                            fs.Write("\n");
+                            sw.Write("\n");
                     }
                 }
             }
