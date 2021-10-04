@@ -903,10 +903,8 @@ namespace MeowsBetterParamEditor
 
             using (var fs = new StreamWriter(browseDialog.FileName))
             {
-                fs.Write("Name");
-                fs.Write(", ");
-                fs.Write("ID");
-                fs.Write(", ");
+                fs.Write("Name, ");
+                fs.Write("ID, ");
                 for (int i = 0; i < selectedParam[0].Cells.Count(); i++)
                 {
                     fs.Write(selectedParam[0].Cells[i].Def.Name);
@@ -918,10 +916,8 @@ namespace MeowsBetterParamEditor
 
                 for (int i = 0; i < selectedParam.Count(); i++)
                 {
-                    fs.Write(selectedParam[i].Name);
-                    fs.Write(", ");
-                    fs.Write(selectedParam[i].ID);
-                    fs.Write(", ");
+                    fs.Write($"{selectedParam[i].Name}, ");
+                    fs.Write($"{selectedParam[i].ID}, ");
                     for (int j = 0; j < selectedParam[i].Cells.Count(); j++)
                     {
                         fs.Write(selectedParam[i].Cells[j].Value);

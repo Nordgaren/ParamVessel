@@ -3,7 +3,7 @@
 ## 1.1  
 ### Added Save to CSV option  
 * Saves to CSV for easy import to spreadsheets  
-* Exports every item in the currently selected Param with the top row being the names of every param  
+* Exports every item in the currently selected Param. The first line is the names. Should export easily into most spreadsheet programs.
 
 ## 1.0  
 ### Added Batch Save/Load  
